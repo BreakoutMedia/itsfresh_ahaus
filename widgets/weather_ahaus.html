@@ -1,129 +1,114 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="de">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wetter – Ahaus</title>
+<style>
+html, body {
+  margin:0;
+  height:100%;
+  width:100%;
+  background: url('bg_weather.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color:#fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:100%;
+  padding: 40px 60px;
+  box-sizing: border-box;
+}
+header {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  font-size: 60px;
+  margin:0;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.left .label {font-size:44px}
+.temp-row {display:flex;align-items:center;gap:20px;margin-top:8px}
+.temp {font-size:160px;font-weight:700}
+.icon {font-size:90px}
+.feels {font-size:36px;margin-top:14px}
+.right {max-width: 800px}
+.right h2 {font-size:56px;margin:0}
+.grid {margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:20px 80px;font-size:34px}
+footer {
+  font-size:28px;
+}
+</style>
 </head>
 <body>
-<p class="p1">&lt;!doctype html&gt;</p>
-<p class="p1">&lt;html lang="de"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="utf-8"&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;</p>
-<p class="p1">&lt;title&gt;Wetter – Ahaus&lt;/title&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1">html, body {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin:0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>height:100%;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>width:100%;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background: url('bg_weather.jpg') no-repeat center center fixed;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>background-size: cover;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>color:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>text-shadow: 0 2px 6px rgba(0,0,0,0.8);</p>
-<p class="p1">}</p>
-<p class="p1">.container {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>height:100%;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>padding: 40px 60px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>box-sizing: border-box;</p>
-<p class="p1">}</p>
-<p class="p1">header {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>display:flex;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>align-items: center;</p>
-<p class="p1">}</p>
-<p class="p1">header h1 {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-size: 60px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>margin:0;</p>
-<p class="p1">}</p>
-<p class="p1">.content {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>align-items: flex-start;</p>
-<p class="p1">}</p>
-<p class="p1">.left .label {font-size:44px}</p>
-<p class="p1">.temp-row {display:flex;align-items:center;gap:20px;margin-top:8px}</p>
-<p class="p1">.temp {font-size:160px;font-weight:700}</p>
-<p class="p1">.icon {font-size:90px}</p>
-<p class="p1">.feels {font-size:36px;margin-top:14px}</p>
-<p class="p1">.right {max-width: 800px}</p>
-<p class="p1">.right h2 {font-size:56px;margin:0}</p>
-<p class="p1">.grid {margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:20px 80px;font-size:34px}</p>
-<p class="p1">footer {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>font-size:28px;</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1">&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Ahaus Wetter&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="updated"&gt;--:--&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="left"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="label"&gt;Jetzt&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="temp-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="temp" id="temp"&gt;--°&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="icon" id="icon"&gt;☀️&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="feels" id="feels"&gt;Gefühlt --°&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="right"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 id="cond"&gt;—&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;Niederschlag:&lt;/div&gt;&lt;div id="prec"&gt;— %&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;Feuchtigkeit:&lt;/div&gt;&lt;div id="humid"&gt;— %&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;Wind:&lt;/div&gt;&lt;div id="wind"&gt;— km/h&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;Luftqualität:&lt;/div&gt;&lt;div id="aqiText"&gt;—&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>Aktualisiert automatisch · Quelle: Open-Meteo</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">const CITY_NAME='Ahaus'; const LAT=52.079; const LON=6.965;</p>
-<p class="p1">function wmoToText(c){const m={0:'Klar',1:'Überwiegend klar',2:'Wolkig',3:'Bedeckt',45:'Nebel',48:'Nebel',51:'Niesel',53:'Niesel',55:'Niesel',61:'Regen',63:'Regen',65:'Starker Regen',66:'Gefrierender Regen',67:'Gefrierender Regen',71:'Schnee',73:'Schnee',75:'Starker Schnee',77:'Schneekörner',80:'Schauer',81:'Schauer',82:'Starke Schauer',85:'Schneeschauer',86:'Starke Schneeschauer',95:'Gewitter',96:'Gewitter',99:'Gewitter'};return m[c]||'Wetter'}</p>
-<p class="p1">function wmoToEmoji(c,n){const e={0:n?'🌙':'☀️',1:n?'🌙':'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',51:'🌦️',53:'🌦️',55:'🌦️',61:'🌧️',63:'🌧️',65:'🌧️',66:'🌧️',67:'🌧️',71:'🌨️',73:'🌨️',75:'❄️',80:'🌦️',81:'🌦️',82:'🌧️',95:'⛈️',96:'⛈️',99:'⛈️'};return e[c]||'☁️'}</p>
-<p class="p1">function pm25ToQuality(pm){if(pm==null)return'—';if(pm&lt;=12)return'Gut';if(pm&lt;=35.4)return'Mittel';return'Schlecht'}</p>
-<p class="p1">async function loadData(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const wURL=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&amp;longitude=${LON}&amp;current_weather=true&amp;hourly=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation_probability,weathercode,windspeed_10m&amp;timezone=auto`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const aURL=`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${LAT}&amp;longitude=${LON}&amp;hourly=pm2_5&amp;timezone=auto`;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const [wr,ar]=await Promise.all([fetch(wURL),fetch(aURL)]);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const weather=await wr.json(); const air=await ar.json();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const cw=weather.current_weather||{}; const h=weather.hourly||{};</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let idx=0;if(h.time&amp;&amp;h.time.length){const iso=new Date().toISOString().slice(0,13);idx=h.time.findIndex(t=&gt;t.slice(0,13)===iso);if(idx&lt;0) idx=h.time.length-1;}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const temp=Math.round(cw.temperature ?? h.temperature_2m?.[idx] ?? 0);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const feels=Math.round(h.apparent_temperature?.[idx] ?? temp);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const hum=Math.round(h.relative_humidity_2m?.[idx] ?? 0);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const prec=Math.round(h.precipitation_probability?.[idx] ?? 0);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const wind=Math.round(cw.windspeed ?? h.windspeed_10m?.[idx] ?? 0);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const code=cw.weathercode ?? h.weathercode?.[idx] ?? 3;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let pm25=null;if(air&amp;&amp;air.hourly&amp;&amp;air.hourly.pm2_5){let aidx=0;if(air.hourly.time){const iso=new Date().toISOString().slice(0,13);aidx=air.hourly.time.findIndex(t=&gt;t.slice(0,13)===iso);if(aidx&lt;0)aidx=air.hourly.time.length-1;}pm25=air.hourly.pm2_5[aidx];}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('temp').textContent=temp+'°';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('feels').textContent='Gefühlt '+feels+'°';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('cond').textContent=wmoToText(Number(code));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('prec').textContent=(prec??0)+' %';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('humid').textContent=(hum??0)+' %';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('wind').textContent=(wind??0)+' km/h';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('icon').textContent=wmoToEmoji(Number(code),false);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('aqiText').textContent=pm25ToQuality(pm25);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('updated').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});</p>
-<p class="p1">}</p>
-<p class="p1">loadData();setInterval(loadData,10*60*1000);</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<div class="container">
+  <header>
+    <h1>Ahaus Wetter</h1>
+    <div id="updated">--:--</div>
+  </header>
+  <div class="content">
+    <div class="left">
+      <div class="label">Jetzt</div>
+      <div class="temp-row">
+        <div class="temp" id="temp">--°</div>
+        <div class="icon" id="icon">☀️</div>
+      </div>
+      <div class="feels" id="feels">Gefühlt --°</div>
+    </div>
+    <div class="right">
+      <h2 id="cond">—</h2>
+      <div class="grid">
+        <div>Niederschlag:</div><div id="prec">— %</div>
+        <div>Feuchtigkeit:</div><div id="humid">— %</div>
+        <div>Wind:</div><div id="wind">— km/h</div>
+        <div>Luftqualität:</div><div id="aqiText">—</div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    Aktualisiert automatisch · Quelle: Open-Meteo
+  </footer>
+</div>
+<script>
+const CITY_NAME='Ahaus'; const LAT=52.079; const LON=6.965;
+function wmoToText(c){const m={0:'Klar',1:'Überwiegend klar',2:'Wolkig',3:'Bedeckt',45:'Nebel',48:'Nebel',51:'Niesel',53:'Niesel',55:'Niesel',61:'Regen',63:'Regen',65:'Starker Regen',66:'Gefrierender Regen',67:'Gefrierender Regen',71:'Schnee',73:'Schnee',75:'Starker Schnee',77:'Schneekörner',80:'Schauer',81:'Schauer',82:'Starke Schauer',85:'Schneeschauer',86:'Starke Schneeschauer',95:'Gewitter',96:'Gewitter',99:'Gewitter'};return m[c]||'Wetter'}
+function wmoToEmoji(c,n){const e={0:n?'🌙':'☀️',1:n?'🌙':'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',51:'🌦️',53:'🌦️',55:'🌦️',61:'🌧️',63:'🌧️',65:'🌧️',66:'🌧️',67:'🌧️',71:'🌨️',73:'🌨️',75:'❄️',80:'🌦️',81:'🌦️',82:'🌧️',95:'⛈️',96:'⛈️',99:'⛈️'};return e[c]||'☁️'}
+function pm25ToQuality(pm){if(pm==null)return'—';if(pm<=12)return'Gut';if(pm<=35.4)return'Mittel';return'Schlecht'}
+async function loadData(){
+  const wURL=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current_weather=true&hourly=temperature_2m,apparent_temperature,relative_humidity_2m,precipitation_probability,weathercode,windspeed_10m&timezone=auto`;
+  const aURL=`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${LAT}&longitude=${LON}&hourly=pm2_5&timezone=auto`;
+  const [wr,ar]=await Promise.all([fetch(wURL),fetch(aURL)]);
+  const weather=await wr.json(); const air=await ar.json();
+  const cw=weather.current_weather||{}; const h=weather.hourly||{};
+  let idx=0;if(h.time&&h.time.length){const iso=new Date().toISOString().slice(0,13);idx=h.time.findIndex(t=>t.slice(0,13)===iso);if(idx<0) idx=h.time.length-1;}
+  const temp=Math.round(cw.temperature ?? h.temperature_2m?.[idx] ?? 0);
+  const feels=Math.round(h.apparent_temperature?.[idx] ?? temp);
+  const hum=Math.round(h.relative_humidity_2m?.[idx] ?? 0);
+  const prec=Math.round(h.precipitation_probability?.[idx] ?? 0);
+  const wind=Math.round(cw.windspeed ?? h.windspeed_10m?.[idx] ?? 0);
+  const code=cw.weathercode ?? h.weathercode?.[idx] ?? 3;
+  let pm25=null;if(air&&air.hourly&&air.hourly.pm2_5){let aidx=0;if(air.hourly.time){const iso=new Date().toISOString().slice(0,13);aidx=air.hourly.time.findIndex(t=>t.slice(0,13)===iso);if(aidx<0)aidx=air.hourly.time.length-1;}pm25=air.hourly.pm2_5[aidx];}
+  document.getElementById('temp').textContent=temp+'°';
+  document.getElementById('feels').textContent='Gefühlt '+feels+'°';
+  document.getElementById('cond').textContent=wmoToText(Number(code));
+  document.getElementById('prec').textContent=(prec??0)+' %';
+  document.getElementById('humid').textContent=(hum??0)+' %';
+  document.getElementById('wind').textContent=(wind??0)+' km/h';
+  document.getElementById('icon').textContent=wmoToEmoji(Number(code),false);
+  document.getElementById('aqiText').textContent=pm25ToQuality(pm25);
+  document.getElementById('updated').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+}
+loadData();setInterval(loadData,10*60*1000);
+</script>
 </body>
 </html>
