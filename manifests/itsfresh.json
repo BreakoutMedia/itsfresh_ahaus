@@ -6,6 +6,7 @@
     {"src":"widgets/weather.html","type":"html","duration":20},
     { "src": "media/ws3.mp4", "type": "video", "duration": 30 },
     { "src": "media/ws5.mp4", "type": "video", "duration": 30 },
+    { "src": "media/itsfreshjob.mp4", "type": "video", "duration": 10 },
     { "src": "media/ws6.png", "type": "image", "duration": 10 },
   ]
 }
