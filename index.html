@@ -1,88 +1,72 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="de">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Signage Player</title>
+<style>
+html,body {margin:0;padding:0;width:100%;height:100%;background:#000;}
+#container {width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#000;color:#fff;font-family:system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;font-size:40px;}
+video, img, iframe {max-width:100%;max-height:100%;width:100%;height:100%;object-fit:cover;border:none;background:#000;}
+</style>
 </head>
 <body>
-<p class="p1">&lt;!doctype html&gt;</p>
-<p class="p1">&lt;html lang="de"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="utf-8"&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</p>
-<p class="p1">&lt;title&gt;Digital Signage Player&lt;/title&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1">html,body {margin:0;padding:0;width:100%;height:100%;background:#000;}</p>
-<p class="p1">#container {width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#000;color:#fff;font-family:system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;font-size:40px;}</p>
-<p class="p1">video, img, iframe {max-width:100%;max-height:100%;width:100%;height:100%;object-fit:cover;border:none;background:#000;}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1">&lt;div id="container"&gt;Lade…&lt;/div&gt;</p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">const params = new URLSearchParams(location.search);</p>
-<p class="p1">const screen = (params.get('screen') || 'ahaus').toLowerCase();</p>
-<p class="p1">const manifestUrl = `manifests/${screen}.json`;</p>
-<p class="p1">let playlist = [];</p>
-<p class="p1">let idx = 0;</p>
-<p class="p2"><br></p>
-<p class="p1">async function loadManifest(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>try{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const res = await fetch(manifestUrl+'?t='+Date.now(), {cache:'no-store'});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const data = await res.json();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>playlist = Array.isArray(data.media) ? data.media : [];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}catch(e){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('container').textContent = 'Manifest nicht gefunden: ' + manifestUrl;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function showItem(item){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const cont = document.getElementById('container');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>cont.innerHTML = '';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let el;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(item.type === 'video'){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el = document.createElement('video');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el.src = item.src;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el.autoplay = true; el.muted = true; el.playsInline = true; el.preload = 'auto';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}else if(item.type === 'image'){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el = document.createElement('img');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el.src = item.src;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}else if(item.type === 'html'){</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el = document.createElement('iframe');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el.src = item.src;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}else{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>el.textContent = 'Unbekannter Typ';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>cont.appendChild(el);</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">async function loop(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if(!playlist.length){ document.getElementById('container').textContent='Keine Inhalte'; return; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const item = playlist[idx % playlist.length];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>showItem(item);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const dur = Math.max(1, item.duration || 10) * 1000;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>setTimeout(()=&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>idx = (idx + 1) % playlist.length;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if(idx === 0){ loadManifest().finally(loop); } else { loop(); }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}, dur);</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">(async()=&gt;{</p>
-<p class="p1"><span class="Apple-converted-space">  </span>await loadManifest();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>loop();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Fallback-Reload alle 5 Min</p>
-<p class="p1"><span class="Apple-converted-space">  </span>setInterval(loadManifest, 5*60*1000);</p>
-<p class="p1">})();</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<div id="container">Lade…</div>
+<script>
+const params = new URLSearchParams(location.search);
+const screen = (params.get('screen') || 'ahaus').toLowerCase();
+const manifestUrl = `manifests/${screen}.json`;
+let playlist = [];
+let idx = 0;
+
+async function loadManifest(){
+  try{
+    const res = await fetch(manifestUrl+'?t='+Date.now(), {cache:'no-store'});
+    const data = await res.json();
+    playlist = Array.isArray(data.media) ? data.media : [];
+  }catch(e){
+    document.getElementById('container').textContent = 'Manifest nicht gefunden: ' + manifestUrl;
+  }
+}
+
+function showItem(item){
+  const cont = document.getElementById('container');
+  cont.innerHTML = '';
+  let el;
+  if(item.type === 'video'){
+    el = document.createElement('video');
+    el.src = item.src;
+    el.autoplay = true; el.muted = true; el.playsInline = true; el.preload = 'auto';
+  }else if(item.type === 'image'){
+    el = document.createElement('img');
+    el.src = item.src;
+  }else if(item.type === 'html'){
+    el = document.createElement('iframe');
+    el.src = item.src;
+  }else{
+    el = document.createElement('div');
+    el.textContent = 'Unbekannter Typ';
+  }
+  cont.appendChild(el);
+}
+
+async function loop(){
+  if(!playlist.length){ document.getElementById('container').textContent='Keine Inhalte'; return; }
+  const item = playlist[idx % playlist.length];
+  showItem(item);
+  const dur = Math.max(1, item.duration || 10) * 1000;
+  setTimeout(()=>{
+    idx = (idx + 1) % playlist.length;
+    if(idx === 0){ loadManifest().finally(loop); } else { loop(); }
+  }, dur);
+}
+
+(async()=>{
+  await loadManifest();
+  loop();
+  // Fallback-Reload alle 5 Min
+  setInterval(loadManifest, 5*60*1000);
+})();
+</script>
 </body>
 </html>
